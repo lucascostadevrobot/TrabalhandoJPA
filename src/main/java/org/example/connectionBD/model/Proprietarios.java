@@ -27,7 +27,8 @@ public class Proprietarios {
         this.ativo = ativo;
     }
 
-    public Proprietarios(String nome, Integer idade, boolean ativo) {
+    public Proprietarios(EnderecoPredial enderecoPredial, String nome, Integer idade, boolean ativo) {
+        this.enderecoPredial = enderecoPredial;
         this.nome = nome;
         this.idade = idade;
         this.ativo = ativo;

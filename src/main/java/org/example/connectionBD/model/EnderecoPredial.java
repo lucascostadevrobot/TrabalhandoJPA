@@ -34,6 +34,15 @@ public class EnderecoPredial {
         this.numeroApartamento = numeroApartamento;
     }
 
+    public EnderecoPredial(String rua, Integer numero, String bairro, String complemento, String cidade, String numeroApartamento) {
+        this.rua = rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.complemento = complemento;
+        this.cidade = cidade;
+        this.numeroApartamento = numeroApartamento;
+    }
+
     public EnderecoPredial() {
     }
 

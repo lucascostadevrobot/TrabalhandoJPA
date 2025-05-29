@@ -8,9 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 
 public class ExecutionPersistence {
@@ -44,11 +41,11 @@ public class ExecutionPersistence {
          * */
         Proprietarios exibindoProprietarios = entityManager.find(Proprietarios.class, 1);
 
-        if (exibindoProprietarios == null){
+        if (exibindoProprietarios == null) {
             JOptionPane.showMessageDialog(null, "Nenhum proprietário encontrado no sistema.");
-        }else {
+        } else {
             entityManager.getTransaction().commit();
-            JOptionPane.showMessageDialog(null, "Exibindo proprietarios:  "  + exibindoProprietarios);
+            JOptionPane.showMessageDialog(null, "Exibindo proprietarios:  " + exibindoProprietarios);
         }
 
         entityManager.close();
@@ -67,6 +64,20 @@ public class ExecutionPersistence {
             JOptionPane.showMessageDialog(null, "O proprietario foi excluido com sucesso.   " + proprietarioEncontrado.getNome());
             entityManager.getTransaction().commit();
         }
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        /**
+         * Altera Proprietarios
+         * */
+        entityManager.getTransaction().begin();
+        Proprietarios proprietarioAlterado = entityManager.find(Proprietarios.class, 1);
+        proprietarioAlterado.setNome("Eva Maria");
+        JOptionPane.showMessageDialog(null, "O proprietario foi alterado.   " + proprietarioAlterado);
+
+
+        entityManager.getTransaction().commit();
 
         entityManager.close();
         entityManagerFactory.close();

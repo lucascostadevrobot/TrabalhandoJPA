@@ -16,7 +16,7 @@ public class Proprietarios {
     @Column
     private boolean ativo;
 
-    @Column
+
     @ManyToOne
     private EnderecoPredial enderecoPredial;
 

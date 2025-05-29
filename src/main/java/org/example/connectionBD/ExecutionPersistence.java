@@ -1,14 +1,20 @@
 package org.example.connectionBD;
 
+
+
+
+
 import org.example.connectionBD.model.EnderecoPredial;
 import org.example.connectionBD.model.Proprietarios;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 public class ExecutionPersistence {
     public static void main(String[] args) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("meu-condominio-test");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("mCODO");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         //Instanciando novos objetos nas para entidades

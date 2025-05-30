@@ -1,4 +1,4 @@
-package org.example.connectionBD;
+package org.example.connectionBD.executions;
 
 
 import org.example.connectionBD.model.EnderecoPredial;

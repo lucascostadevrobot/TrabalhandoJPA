@@ -78,7 +78,13 @@ public class ExecutionJPQL {
             proprietarios.setNome(nomeProprietario);
             proprietarios.setIdade(idadeProprietario);
             proprietarios.setAtivo(isAtivo);
-            proprietarios.setEnderecoPredial(enderecoPredial.setRua(ruaProprietario));
+            enderecoPredial.setRua(ruaProprietario);
+            enderecoPredial.setNumero(numeroEnderecoProprietario);
+            enderecoPredial.setBairro(bairroProprietario);
+            enderecoPredial.setCidade(cidadeProprietario);
+            enderecoPredial.setComplemento(complementoEnderecoProprietario);
+            enderecoPredial.setNumeroApartamento(String.valueOf(numeroAptProprietario));
+
 
             entityManager.persist(proprietarios);
             entityManager.getTransaction().commit();

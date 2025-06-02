@@ -1,6 +1,7 @@
 package org.example.connectionBD.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Proprietarios {
@@ -17,7 +18,7 @@ public class Proprietarios {
     private boolean ativo;
 
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private EnderecoPredial enderecoPredial;
 
     public Proprietarios(Integer id, String nome, Integer idade, boolean ativo) {
@@ -77,6 +78,18 @@ public class Proprietarios {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Proprietarios that = (Proprietarios) o;
+        return ativo == that.ativo && Objects.equals(id, that.id) && Objects.equals(nome, that.nome) && Objects.equals(idade, that.idade) && Objects.equals(enderecoPredial, that.enderecoPredial);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, idade, ativo, enderecoPredial);
     }
 
     @Override

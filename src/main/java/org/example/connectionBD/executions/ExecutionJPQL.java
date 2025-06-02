@@ -87,6 +87,8 @@ public class ExecutionJPQL {
 
 
             entityManager.persist(proprietarios);
+            proprietarios.setEnderecoPredial(enderecoPredial);
+
             entityManager.getTransaction().commit();
             JOptionPane.showMessageDialog(null,"Proprietario cadastrado com sucesso!");
 

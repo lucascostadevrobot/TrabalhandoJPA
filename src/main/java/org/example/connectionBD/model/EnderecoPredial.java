@@ -2,6 +2,7 @@ package org.example.connectionBD.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class EnderecoPredial {
@@ -100,6 +101,18 @@ public class EnderecoPredial {
 
     public void setNumeroApartamento(String numeroApartamento) {
         this.numeroApartamento = numeroApartamento;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        EnderecoPredial that = (EnderecoPredial) o;
+        return Objects.equals(idEndereco, that.idEndereco) && Objects.equals(rua, that.rua) && Objects.equals(numero, that.numero) && Objects.equals(bairro, that.bairro) && Objects.equals(cidade, that.cidade) && Objects.equals(complemento, that.complemento) && Objects.equals(numeroApartamento, that.numeroApartamento) && Objects.equals(proprietariosList, that.proprietariosList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idEndereco, rua, numero, bairro, cidade, complemento, numeroApartamento, proprietariosList);
     }
 
     @Override
